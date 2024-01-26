@@ -16,7 +16,7 @@ services:
     image: sxz713/taski_backend
     env_file: .env
     volumes:
-      - static_volume:/app/collected_static/
+      - static_volume:/backend_static
     depends_on:
       - db_user
   frontend:

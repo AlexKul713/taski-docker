@@ -26,7 +26,7 @@ services:
     build: ./backend/
     env_file: .env
     volumes:
-      - static:/app/collected_static/
+      - static:/backend_static
     # Какие контейнеры нужно запустить до старта этого контейнера:
   # Имя третьего контейнера. Это контейнер с фронтендом
     depends_on:
