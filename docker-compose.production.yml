@@ -5,9 +5,8 @@ volumes:
   pg_data_production:
   static_volume:
 
-# Всё отличие — заменяем build на image и указываем, какой образ использовать
 services:
-  db_user:
+  db:
     image: postgres:13.10
     env_file: .env
     volumes:
@@ -18,7 +17,7 @@ services:
     volumes:
       - static_volume:/backend_static
     depends_on:
-      - db_user
+      - db
   frontend:
     image: sxz713/taski_frontend  # Качаем с Docker Hub
     env_file: .env
@@ -32,5 +31,3 @@ services:
       - static_volume:/staticfiles/
     ports:
       - 8084:80
-    depends_on:
-      - db_user
