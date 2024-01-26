@@ -29,6 +29,8 @@ services:
       - static:/app/collected_static/
     # Какие контейнеры нужно запустить до старта этого контейнера:
   # Имя третьего контейнера. Это контейнер с фронтендом
+    depends_on:
+      - db_user
   frontend:
     env_file: .env
     build: ./frontend/
@@ -46,4 +48,6 @@ services:
     # перенаправление всех запросов с порта 8000 хоста
     # на порт 80 контейнера.
     ports:
-      - 8084:80 
+      - 8084:80
+    depends_on:
+      - db_user
