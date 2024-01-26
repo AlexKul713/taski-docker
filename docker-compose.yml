@@ -50,4 +50,4 @@ services:
     volumes:
       - static:/staticfiles/
     ports:
-      - 8000:80
+      - 8084:80
