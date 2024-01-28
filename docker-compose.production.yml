@@ -25,7 +25,7 @@ services:
     depends_on:
       - db_user
   frontend:
-    image: sxz713/taski_frontend  # Качаем с Docker Hub!!!!!!!!!11
+    image: sxz713/taski_frontend  # Качаем с Docker Hub!!!!!!!!!112222
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
