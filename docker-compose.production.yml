@@ -7,15 +7,15 @@ volumes:
 services:
   db_user:
     image: postgres:13.10
+    ports: #add line.
+      - '5432'
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     env_file: .env
     volumes:
       - pg_data_production:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=django
-      - POSTGRES_USER=django_user
-      - POSTGRES_PASSWORD=mysecretpassword
-    ports:
-      - 5432:5432
   backend:
     image: sxz713/taski_backend
     env_file: .env
