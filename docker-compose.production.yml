@@ -7,13 +7,9 @@ volumes:
 services:
   db_user:
     image: postgres:13.10
-    ports: #add line.
-      - '5432'
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - DB_NAME=django
+      POSTGRES_USER: aso
+      POSTGRES_PASSWORD: somepass
     env_file: .env
     volumes:
       - pg_data_production:/var/lib/postgresql/data
