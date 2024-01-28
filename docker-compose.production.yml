@@ -5,11 +5,8 @@ volumes:
   static_volume:
 
 services:
-  db_user:
+  db:
     image: postgres:13.10
-    environment:
-      POSTGRES_USER: aso
-      POSTGRES_PASSWORD: somepass
     env_file: .env
     volumes:
       - pg_data_production:/var/lib/postgresql/data
@@ -18,16 +15,14 @@ services:
     env_file: .env
     volumes:
       - static_volume:/backend_static
-    depends_on:
-      - db_user
   frontend:
-    image: sxz713/taski_frontend  # Качаем с Docker Hub!!!!!!!!!112222
+    image: sxz713/taski_frontend  
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static_volume:/frontend_static
   gateway:
-    image: sxz713/taski_gateway  # Качаем с Docker Hub!!
+    image: sxz713/taski_gateway  
     env_file: .env
     volumes:
       - static_volume:/staticfiles/
