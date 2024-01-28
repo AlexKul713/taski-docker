@@ -6,8 +6,13 @@ volumes:
   static:
 
 services:
-  db:
+  db_user:
     image: postgres:13.10
+    environment:
+      POSTGRES_DATABASE: admin
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_ROOT_PASSWORD: root
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
