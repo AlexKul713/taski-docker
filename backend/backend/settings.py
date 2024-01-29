@@ -7,7 +7,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '123')
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'taskisxz.ddns.net']
 
-DEBUG = os.getenv('DEBUG', default=False)
+DEBUG = os.getenv('DEBUG', default=False) == True
 
 # Application definition
 
